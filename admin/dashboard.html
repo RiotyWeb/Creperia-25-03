@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f4ee">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Panel administrativo</title>
+  <link rel="stylesheet" href="./css/admin.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="./js/config.js"></script>
+  <script src="./js/dashboard.js" defer></script>
+</head>
+<body class="dashboard-page">
+  <div class="dashboard-layout">
+    <aside class="sidebar">
+      <a class="sidebar-brand" href="./dashboard.html"><span class="brand-mark small">C</span><span>Administración</span></a>
+      <nav aria-label="Navegación principal">
+        <a class="nav-link active" href="./dashboard.html">▦ <span>Resumen</span></a>
+        <a class="nav-link" href="#productos">◇ <span>Productos</span><small>Próximamente</small></a>
+        <a class="nav-link" href="#pedidos">▤ <span>Pedidos</span><small>Próximamente</small></a>
+        <a class="nav-link" href="#configuracion">⚙ <span>Configuración</span><small>Próximamente</small></a>
+      </nav>
+      <button id="logout-button" class="logout-button" type="button">↪ Cerrar sesión</button>
+    </aside>
+    <main class="main-content">
+      <header class="topbar">
+        <div><p class="eyebrow">ESPACIO DE TRABAJO</p><h1>Resumen</h1></div>
+        <div class="account-chip"><span class="status-dot"></span><span id="admin-email">Verificando acceso…</span></div>
+      </header>
+      <section class="welcome-row">
+        <div><h2>Bienvenido</h2><p class="muted">Este es el estado actual de tu negocio.</p></div>
+        <span class="date-label" id="current-date"></span>
+      </section>
+      <section class="stats-grid" aria-label="Indicadores">
+        <article class="stat-card"><span class="stat-label">Productos registrados</span><strong id="products-count">—</strong><span class="stat-note">En el catálogo</span></article>
+        <article class="stat-card"><span class="stat-label">Categorías activas</span><strong id="categories-count">—</strong><span class="stat-note">En el menú</span></article>
+        <article class="stat-card"><span class="stat-label">Pedidos pendientes</span><strong id="orders-count">—</strong><span class="stat-note">Por revisar</span></article>
+      </section>
+      <section class="content-card">
+        <div class="section-heading"><div><p class="eyebrow">ACTIVIDAD</p><h2>Pedidos recientes</h2></div><span class="muted">Información real de la base de datos</span></div>
+        <div class="table-wrap">
+          <table><thead><tr><th>Pedido</th><th>Cliente</th><th>Fecha</th><th>Estado</th><th>Total</th></tr></thead>
+          <tbody id="recent-orders"><tr><td colspan="5" class="empty-state">Cargando información…</td></tr></tbody></table>
+        </div>
+      </section>
+      <p id="dashboard-message" class="form-message" role="status" aria-live="polite"></p>
+    </main>
+  </div>
+</body>
+</html>
